@@ -1,0 +1,26 @@
+void	ft_checkfigure(char **map, int str)
+{
+	int i;
+	int k;
+	int j;
+
+	i = 0;
+	while (i < str)
+	{
+		k = i;
+		while (k < i + 4)
+		{
+			j = 0;
+			while (map[k][j])
+			{
+				if (map[k][j] != '.' && map[k][j] != '#' && map[k][j] != '\n')
+					ft_error(3);
+				j++;
+			}
+			if (j != 5)
+				ft_error(3);
+			k++;
+		}
+		i += 5;
+	}
+}
