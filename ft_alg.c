@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 16:29:49 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/15 19:57:20 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/19 19:05:04 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ int		ft_alg(char **map, int n)
 	mapsize = ft_mapmin(n);
 	result = ft_memalloc2(mapsize, mapsize);
 	ft_recurs(*map, result, x, y, mapsize);
+	while (map[x])
+	{
+		ft_putstr(map[x]);
+		x++;
+	}
 	ft_output(&result);
 	return (0);
 }

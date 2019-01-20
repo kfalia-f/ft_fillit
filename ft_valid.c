@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 15:05:01 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/19 16:52:40 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/19 19:25:05 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	ft_checktet(char **map, int i, int k, int str)
 	neb = 0;
 	while (k < i + 4)
 	{
-		j = 0;
-		while (map[k][j] != '\n')
+		j = -1;
+		while (map[k][++j] != '\n')
 		{
 			if (map[k][j] == '#')
 			{
@@ -84,7 +84,6 @@ void	ft_checktet(char **map, int i, int k, int str)
 					if (map[k - 1][j] == '#')
 						neb++;
 			}
-			j++;
 		}
 		k++;
 	}
@@ -118,7 +117,7 @@ int		ft_valid(char **map)
 	str = ft_str(map);
 	if (((str + 1) / 5) > 26)
 		ft_error(3);
-	ft_checkfigure(map, str);
 	ft_checktetra(map, str);
+	ft_newmap(map, (str + 1) / 5);
 	return (1);
 }
