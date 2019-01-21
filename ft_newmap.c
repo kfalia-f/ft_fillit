@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 16:24:33 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/20 17:18:31 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/20 18:25:59 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,5 @@ void	ft_newmap(char **map, int n)
 		ft_sdvig(map, i, i, up, left);
 		i += 5;
 	}
+	ft_coord(map, n);
 }

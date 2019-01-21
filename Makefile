@@ -6,7 +6,7 @@
 #    By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/09 15:38:31 by kfalia-f          #+#    #+#              #
-#    Updated: 2019/01/15 19:48:01 by kfalia-f         ###   ########.fr        #
+#    Updated: 2019/01/20 18:26:37 by kfalia-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC = fillit.c \
 	  ft_clearspot.c \
 	  ft_touch.c \
 	  ft_newmap.c \
-	  ft_output.c
+	  ft_output.c \
+	  ft_coord.c
 
 OBJ = $(SOURCE:.c=.o)
 

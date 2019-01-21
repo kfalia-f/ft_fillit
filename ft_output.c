@@ -6,20 +6,21 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 19:46:14 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/16 16:49:35 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/01/21 16:14:35 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	ft_output(char ***result)
+void	ft_output(char **result)
 {
 	int i;
 
 	i = 0;
-	while (*(result[i]))
+	while ((result[i]))
 	{
-		ft_putstr(*(result[i]));
+		ft_putstr((result[i]));
+		ft_putchar('\n');
 		i++;
 	}
 }
