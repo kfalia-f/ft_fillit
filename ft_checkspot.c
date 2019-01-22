@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:05:06 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/22 15:41:45 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/22 21:45:00 by koparker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ int		ft_checkspot(int *map, char **result, int mapsize)
 	}
 	if (co == 4)
 		return (1);
-	else
-		return (0);
+	return (0);
 }

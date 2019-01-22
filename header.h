@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 18:44:24 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/22 16:54:37 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/22 21:39:35 by koparker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_valid(char **map);
 void	ft_newmap(char **map, int n);
 void	ft_output(char **result);
 void	ft_coord(char **map, int n);
+void	ft_back(int **map);
 
 #endif

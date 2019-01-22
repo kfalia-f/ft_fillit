@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 16:29:49 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/22 21:13:13 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/22 22:09:54 by koparker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		ft_alg(int **map, int n)
 	result = ft_memalloc2(mapsize, mapsize);
 	while (ft_recurs(map, result, mapsize, 0) == 0)
 	{
+		ft_back(map);
 		ft_mass2del(result);
 		mapsize++;
 		result = ft_memalloc2(mapsize, mapsize);
