@@ -6,24 +6,37 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 16:07:02 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/21 16:38:09 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/22 15:41:43 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int		ft_recurs(char *map, char **result, int x, int y, int mapsize)
+int		ft_recurs(int **map, char **result, int mapsize, int fn)
 {
-	if (ft_checkspot(map, result, x, y, mapsize) == 0)
+	if (ft_isdigit(map[fn][0]) == 0)
+		return (1);
+	if (ft_checkspot(map[fn], result, mapsize) == 1)
 	{
-		if (x < mapsize)
-			ft_recurs(map, result, x + 1, y, mapsize);
-		else if (y < mapsize)
-			ft_recurs(map, result, 0, y + 1, mapsize);
-		else
-			return (0);
+		ft_touch(map[fn], result);
+		ft_recurs(map, result, mapsize, fn + 1);
 	}
-	else
-		ft_touch(map, result, x, y);
-	return (1);
+	if (map[fn][10] < mapsize)
+	{
+		map[fn][10] += 1;
+		ft_recurs(map, result, mapsize, fn);
+	}
+	if (map[fn][9] < mapsize)
+	{
+		map[fn][10] = 0;
+		map[fn][9] += 1;
+		ft_recurs(map, result, mapsize, fn);
+	}
+	if (fn > 0)
+	{
+		ft_clearspot(map[fn - 1], result, 1);
+		ft_recurs(map, result, mapsize, fn - 1);
+	}
+	ft_clearspot(map, result, 0);
+	return (0);
 }

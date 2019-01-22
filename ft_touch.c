@@ -6,22 +6,22 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 16:42:30 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/21 16:15:50 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/22 15:16:33 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	ft_touch(char *map, char **result, int x, int y)
+void	ft_touch(int *map, char **result)
 {
 	int		co;
 
 	co = 0;
 	while (co < 4)
 	{
-		result[(map[co] - '0') + y][(map[co + 4] - '0') + x] = map[8];
-		map[co] = (map[co] - '0') + y + '0';
-		map[co + 4] = map[co + 4] - '0' + (x + '0');
+		result[map[co] + map[9]][map[co + 4] + map[10]] = map[8];
+		map[co] = map[co] + map[9];
+		map[co + 4] = map[co + 4] + map[10];
 		co++;
 	}
 }
