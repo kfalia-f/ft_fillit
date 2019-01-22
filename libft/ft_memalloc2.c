@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 16:17:39 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/15 17:06:15 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/22 21:04:37 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**ft_memalloc2(size_t i, size_t j)
 	size_t 	l;
 
 	k = 0;
-	if ((s = (char **)malloc(sizeof(char *) * i)) == NULL)
+	if ((s = (char **)malloc(sizeof(char *) * (i + 1))) == NULL)
 		return (NULL);
 	while (k < i)
 	{
@@ -39,5 +39,6 @@ char	**ft_memalloc2(size_t i, size_t j)
 		s[k][l] = '\0';
 		k++;
 	}
+	s[i] = NULL;
 	return (s);
 }

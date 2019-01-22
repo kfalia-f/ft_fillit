@@ -6,7 +6,7 @@
 #    By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/09 15:38:31 by kfalia-f          #+#    #+#              #
-#    Updated: 2019/01/20 18:26:37 by kfalia-f         ###   ########.fr        #
+#    Updated: 2019/01/22 21:14:12 by kfalia-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): 
-	gcc $(CFLAGS) $(SRC) $(LIB) -o $(NAME)
+	gcc -g $(CFLAGS) $(SRC) $(LIB) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)

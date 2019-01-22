@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/21 15:55:55 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/21 15:55:56 by kfalia-f         ###   ########.fr       */
+/*   Created: 2019/01/22 20:59:51 by kfalia-f          #+#    #+#             */
+/*   Updated: 2019/01/22 21:09:24 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 void	ft_mass2del(char **a)
 {
-	while (*a)
+	int i;
+
+	i = 0;
+	while (a[i] != NULL)
 	{
-		free(*a);
-		(*a)++;
+		free(a[i]);
+		a[i] = NULL;
+		i++;
 	}
+	free(a[i]);
+	a[i] = NULL;
 	free(a);
+	a = NULL;
 }

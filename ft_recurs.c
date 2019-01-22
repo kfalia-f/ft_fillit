@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 16:07:02 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/22 15:41:43 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/22 20:55:04 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,30 @@
 
 int		ft_recurs(int **map, char **result, int mapsize, int fn)
 {
-	if (ft_isdigit(map[fn][0]) == 0)
+	if (map[fn] == NULL)
 		return (1);
-	if (ft_checkspot(map[fn], result, mapsize) == 1)
+	while (map[fn] != NULL)
 	{
-		ft_touch(map[fn], result);
-		ft_recurs(map, result, mapsize, fn + 1);
+		if (ft_checkspot(map[fn], result, mapsize) == 1)
+		{
+			ft_touch(map[fn], result);
+			ft_recurs(map, result, mapsize, fn + 1);
+			break ;
+		}
+		else if (map[fn][10] + map[fn][4] < mapsize)
+			map[fn][10] += 1;
+		else if (map[fn][9] + map[fn][0] < mapsize)
+		{
+			map[fn][10] = 0;
+			map[fn][9] += 1;
+		}
+		else if (fn > 0)
+		{
+			fn--;
+			ft_clearspot(map[fn], result, 1);
+		}
+		else
+			break ;
 	}
-	if (map[fn][10] < mapsize)
-	{
-		map[fn][10] += 1;
-		ft_recurs(map, result, mapsize, fn);
-	}
-	if (map[fn][9] < mapsize)
-	{
-		map[fn][10] = 0;
-		map[fn][9] += 1;
-		ft_recurs(map, result, mapsize, fn);
-	}
-	if (fn > 0)
-	{
-		ft_clearspot(map[fn - 1], result, 1);
-		ft_recurs(map, result, mapsize, fn - 1);
-	}
-	ft_clearspot(map, result, 0);
 	return (0);
 }

@@ -6,11 +6,12 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 16:29:49 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/22 15:14:37 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/01/22 21:13:13 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+#include <stdio.h>
 
 int		ft_mapmin(int n)
 {
@@ -32,6 +33,12 @@ int		ft_alg(int **map, int n)
 	i = 0;
 	mapsize = ft_mapmin(n);
 	result = ft_memalloc2(mapsize, mapsize);
+	while (ft_recurs(map, result, mapsize, 0) == 0)
+	{
+		ft_mass2del(result);
+		mapsize++;
+		result = ft_memalloc2(mapsize, mapsize);
+	}
 	ft_output(result);
 	return (0);
 }
