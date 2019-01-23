@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 18:24:35 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/22 22:02:49 by koparker         ###   ########.fr       */
+/*   Updated: 2019/01/23 18:32:51 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		**ft_arrey(int n)
 	i = 0;
 	if ((a = (int **)malloc(sizeof(int *) * (n + 1))) == NULL)
 		ft_error(4);
-	while (i < n)
+	while (i <= n)
 	{
 		if ((a[i] = (int *)malloc(sizeof(int) * 11)) == NULL)
 			ft_error(4);
@@ -67,6 +67,6 @@ void	ft_coord(char **map, int n)
 		a[i / 5][10] = 0;
 		i += 5;
 	}
-	a[n] = NULL;
+	a[n][0] = -1;
 	ft_alg(a, n);
 }

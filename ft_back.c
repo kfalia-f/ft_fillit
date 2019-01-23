@@ -18,12 +18,8 @@ void	ft_back(int **map)
 				map[i][j] = map[i][j] - map[i][9];
 				map[i][j + 4] = map[i][j + 4] - map[i][10];
 			}
-			else
-				flag = 1;
 			j++;
 		}
-		if (flag == 1)
-			break ;
 		map[i][9] = 0;
 		map[i][10] = 0;
 		i++;

@@ -6,16 +6,19 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 16:07:02 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/22 21:43:27 by koparker         ###   ########.fr       */
+/*   Updated: 2019/01/23 18:34:19 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int		ft_recurs(int **map, char **result, int mapsize, int fn)
+void	ft_recurs(int **map, char **result, int mapsize, int fn)
 {
-	if (map[fn] == NULL)
-		return (1);
+	if (map[fn][0] == -1)
+	{
+		map[fn][0] = -2;
+		return ;
+	}
 	while (map[fn] != NULL)
 	{
 		if (ft_checkspot(map[fn], result, mapsize) == 1)
@@ -33,11 +36,11 @@ int		ft_recurs(int **map, char **result, int mapsize, int fn)
 		}
 		else if (fn > 0)
 		{
+			ft_clearspot(map[fn], result, 2);
 			fn--;
 			ft_clearspot(map[fn], result, 1);
 		}
 		else
-			break ;
+			return ;
 	}
-	return (0);
 }
