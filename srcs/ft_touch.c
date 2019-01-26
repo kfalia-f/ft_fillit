@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mass2del.c                                      :+:      :+:    :+:   */
+/*   ft_touch.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/22 20:59:51 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/26 19:43:35 by kfalia-f         ###   ########.fr       */
+/*   Created: 2019/01/12 16:42:30 by kfalia-f          #+#    #+#             */
+/*   Updated: 2019/01/22 21:55:44 by koparker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "header.h"
 
-void	ft_mass2del(char **a)
+void	ft_touch(int *map, char **result)
 {
-	int i;
+	int		co;
 
-	i = 0;
-	while (a[i] != NULL)
+	co = 0;
+	while (co < 4)
 	{
-		ft_strdel(&a[i]);
-		a[i] = NULL;
-		i++;
+		result[map[co] + map[9]][map[co + 4] + map[10]] = map[8] + 'A';
+		map[co] = map[co] + map[9];
+		map[co + 4] = map[co + 4] + map[10];
+		co++;
 	}
-	free(a[i]);
-	a[i] = NULL;
-	free(a);
-	a = NULL;
 }

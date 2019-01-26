@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mass2del.c                                      :+:      :+:    :+:   */
+/*   ft_memalloc2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/22 20:59:51 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/26 19:43:35 by kfalia-f         ###   ########.fr       */
+/*   Created: 2019/01/10 16:17:39 by kfalia-f          #+#    #+#             */
+/*   Updated: 2019/01/26 19:59:14 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_mass2del(char **a)
+char	**ft_memalloc2(size_t i, size_t j)
 {
-	int i;
+	char	**s;
+	size_t	k;
+	size_t	l;
 
-	i = 0;
-	while (a[i] != NULL)
+	k = -1;
+	if ((s = (char **)malloc(sizeof(char *) * (i + 1))) == NULL)
+		return (NULL);
+	while (++k < i)
+		if ((s[k] = (char *)malloc(sizeof(char) * j)) == NULL)
+			return (NULL);
+	k = 0;
+	while (k < i)
 	{
-		ft_strdel(&a[i]);
-		a[i] = NULL;
-		i++;
+		l = 0;
+		while (l < j)
+		{
+			s[k][l] = '.';
+			l++;
+		}
+		s[k][l] = '\0';
+		k++;
 	}
-	free(a[i]);
-	a[i] = NULL;
-	free(a);
-	a = NULL;
+	s[i] = NULL;
+	return (s);
 }

@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2massdel.c                                      :+:      :+:    :+:   */
+/*   ft_checkspot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/12 15:58:44 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/01/12 16:02:52 by kfalia-f         ###   ########.fr       */
+/*   Created: 2019/01/10 21:05:06 by kfalia-f          #+#    #+#             */
+/*   Updated: 2019/01/23 18:10:21 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "header.h"
 
-void	ft_2massdel(char **mass);
+int		ft_checkspot(int *map, char **result, int mapsize)
 {
-	int		i;
+	int		co;
 
-	i = 0;
-	while (mass[i])
+	co = 0;
+	while (co < 4)
 	{
-		free(mass[i]);
-		mass[i] = NULL;
-		i++;
+		if ((map[co] + map[9] < mapsize) && (mapsize > map[co + 4] + map[10]))
+		{
+			if (result[map[co] + map[9]][map[co + 4] + map[10]] == '.')
+			{
+				co++;
+				continue ;
+			}
+			else
+				co = 10;
+		}
+		else
+			return (0);
 	}
-	free(mass);
+	if (co == 4)
+		return (1);
+	return (0);
 }
